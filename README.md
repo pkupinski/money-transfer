@@ -51,10 +51,10 @@ Sample JSON format for a transfer:
 ```
 
 ## Assumptions
-1. I've created minimum count of API methods
-   1. Focused on transfer processing
+1. I've created a minimum set of API methods
+   1. focus on transfer processing
    1. no accounts management - so I'm not handling account removal
-1. Persistence is based in memory mock implementation
+1. Persistence is based in memory (mock implementation)
    1. account/transaction data should be stored in db probably with using Event Sourcing
    1. there are 4 build in accounts with initial balance (initial transactions)
 1. No currency management
@@ -64,13 +64,13 @@ Sample JSON format for a transfer:
 1. I'm treating transfers to same account (A -> A) as error
 
 
-TODO
+## TODO
 1. UUID's should be used as account id's
-1. Event sourcing should be used to keep transactions (my solution is to simple)
+1. Event sourcing should be used to keep transactions (my solution is too simple)
 1. Application port should be configurable
 1. DTO and DO objects should be used
-1. As mentioned in assumptions - balance caching with eviction should be used (for performance improvements)
+1. As mentioned in assumptions - account's balance caching with eviction should be used (for performance improvements)
 1. Logging should be improved
-1. Tests should be added (I've created tests only for major classes)
+1. Some tests should be added (I've created tests only for major classes)
    1. Integration tests should be added (there are only unit and e2e tests)
    1. Unit tests should be added for some of the classes

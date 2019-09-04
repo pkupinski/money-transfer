@@ -8,6 +8,9 @@ import com.revolut.transfers.repo.TransactionRepo;
 import java.math.BigDecimal;
 import java.util.List;
 
+/**
+ * Calculates balance from account's transactions.
+ */
 @Singleton
 public class BalanceQuery {
     private final TransactionRepo transactionRepo;
