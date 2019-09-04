@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'com.revolut'
+version '0.1'
+
+sourceCompatibility = 12
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(Test) {
+    testLogging {
+        events = ["passed", "failed"]
+    }
+}
+
+application {
+    mainClassName = 'com.revolut.transfers.MoneyTransfersMain'
+    applicationDefaultJvmArgs = ['--add-opens', 'java.base/java.lang=ALL-UNNAMED'] // temporary fix for issue with guice: https://github.com/google/guice/issues/1133
+}
+
+dependencies {
+    compile 'com.sparkjava:spark-core:2.9.1'
+    compile 'com.google.code.gson:gson:2.8.5'
+
+	compile 'com.google.inject:guice:4.2.2'
+
+    compile 'org.slf4j:slf4j-api:1.7.28'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+
+
+    testCompile 'io.rest-assured:rest-assured:4.0.0'
+    testCompile 'org.mockito:mockito-core:3.0.0'
+    testCompile 'junit:junit:4.12'
+}
